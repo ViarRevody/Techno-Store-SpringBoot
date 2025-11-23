@@ -1,5 +1,6 @@
 package com.example.Te.hno_store.Warehouse;
 
+import com.example.Te.hno_store.Product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class WarehouseService {
     private final WarehouseRepository warehouseRepository;
+    private final ProductRepository productRepository;
 
     public List<Warehouse> getAll(){
         return warehouseRepository.findAll();
