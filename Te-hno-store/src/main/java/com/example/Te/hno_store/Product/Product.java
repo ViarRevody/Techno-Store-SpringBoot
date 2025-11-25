@@ -7,8 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
-@Table(name = "technology")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Table(name = "product_type")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

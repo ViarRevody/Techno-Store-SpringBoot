@@ -19,7 +19,7 @@
   <component name="DBNavigator.Project.DatabaseBrowserManager">
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
-    <show-object-properties value="true" />
+    <show-object-properties value="false" />
     <loaded-nodes />
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
@@ -37,9 +37,12 @@
     <connection id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.product_type" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.phone" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.Product_type" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.laptop" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.warehouse" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.cart_item" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.technology" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.product" active-filter-id="EMPTY_FILTER" />
   </component>

@@ -1,5 +1,6 @@
 package com.example.Te.hno_store.Warehouse;
 
+import com.example.Te.hno_store.Product.Product;
 import com.example.Te.hno_store.Product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -15,15 +16,16 @@ public class WarehouseService {
     public List<Warehouse> getAll(){
         return warehouseRepository.findAll();
     }
-
-    public Warehouse add(Warehouse warehouse){
-        return warehouseRepository.save(warehouse);
-    }
-
     public void removeById(Long id) {
         warehouseRepository.deleteById(id); // встроенный метод JpaRepository
     }
-
+    public Warehouse add(Warehouse warehouse) {
+        // Автоматически заполняем название товара
+        Product product = productRepository.findById(warehouse.getProduct().getId())
+                .orElseThrow(() -> new RuntimeException("Product not found"));
+        warehouse.setProductName(product.getName());
+        return warehouseRepository.save(warehouse);
+    }
 
     public List<Warehouse> getByProductId(Long productId) {
         return warehouseRepository.findByProduct_Id(productId);

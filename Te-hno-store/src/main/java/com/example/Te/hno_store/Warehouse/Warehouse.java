@@ -22,4 +22,7 @@ public class Warehouse {
     @Column(name = "quantity", nullable = false)
     private int quantity;
 
+    @Column(name = "product_name")
+    private String productName;
+
 }
