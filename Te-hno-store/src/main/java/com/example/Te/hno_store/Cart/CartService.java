@@ -11,7 +11,6 @@ import javax.swing.plaf.PanelUI;
 @Service
 @RequiredArgsConstructor
 public class CartService {
-
     private final CartRepository cartRepository;
     private final ProductRepository productRepository;
 
@@ -37,6 +36,7 @@ public class CartService {
         CartItem newItem = new CartItem();
         newItem.setProduct(product);
         newItem.setQuantity(quantity);
+        newItem.setCart(cart);
         cart.getItems().add(newItem);
         return cartRepository.save(cart);
     }
