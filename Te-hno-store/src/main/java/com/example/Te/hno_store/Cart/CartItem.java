@@ -1,6 +1,7 @@
 package com.example.Te.hno_store.Cart;
 
 import com.example.Te.hno_store.Product.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,6 +18,7 @@ public class CartItem {
 
     @ManyToOne
     @JoinColumn(name = "cart_id", nullable = false)
+    @JsonIgnore
     private Cart cart;
 
     @ManyToOne
@@ -24,4 +26,7 @@ public class CartItem {
     private Product product;
 
     private int quantity;
+
+    @Column(name = "product_name")
+    private String productName;
 }

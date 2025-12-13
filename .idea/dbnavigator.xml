@@ -38,6 +38,7 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.product_type" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.cart" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.phone" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.Product_type" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.laptop" active-filter-id="EMPTY_FILTER" />
