@@ -20,6 +20,7 @@ public class WarehouseService {
     private final ProductRepository productRepository;
 
     public List<Warehouse> getAll(){
+        log.info("Getting all warehouses");
         return warehouseRepository.findAll();
     }
     public void removeById(Long id) {

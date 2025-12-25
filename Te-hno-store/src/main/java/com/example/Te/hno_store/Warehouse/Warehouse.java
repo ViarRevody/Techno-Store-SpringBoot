@@ -1,7 +1,16 @@
 package com.example.Te.hno_store.Warehouse;
 
 import com.example.Te.hno_store.Product.Product;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +29,7 @@ public class Warehouse {
     private Product product;
 
     @Column(name = "quantity", nullable = false)
+    @Min(value = 0, message = "Quantity must be greater than 0")
     private int quantity;
 
     @Column(name = "product_name")

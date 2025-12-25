@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,49 +27,57 @@ public class ProductResource {
     private final ProductRepository productRepository;
 
     @GetMapping
-    public List<Product> getAll(Pageable pageable) {
+    public ResponseEntity<List<Product>> getAll(Pageable pageable) {
         log.info("Getting all products");
-        return productRepository.findAll(pageable.getSort());
+        List<Product> products = productRepository.findAll(pageable.getSort());
+        return ResponseEntity.ok(products);
     }
 
     @GetMapping("/{id}")
-    public Product getOne(@PathVariable Long id) {
+    public ResponseEntity<Product> getOne(@PathVariable Long id) {
         log.info("Getting product by id: {}", id);
         Optional<Product> productOptional = productRepository.findById(id);
-        return productOptional.orElseThrow(() -> {
+        if (productOptional.isPresent()) {
+            return ResponseEntity.ok(productOptional.get());
+        } else {
             log.error("Product with id {} not found", id);
-            return new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
-        });
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
+        }
     }
 
     @PostMapping
-    public Product create(@RequestBody Product product) {
+    public ResponseEntity<Product> create(@RequestBody Product product) {
         log.info("Creating product: {}", product);
-        return productRepository.save(product);
+        Product savedProduct = productRepository.save(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedProduct);
     }
 
     @PutMapping("/{id}")
-    public Product update(@PathVariable Long id, @RequestBody Product updatedProduct) {
+    public ResponseEntity<Product> update(@PathVariable Long id, @RequestBody Product updatedProduct) {
         log.info("Updating product by id: {}", id);
-        Product product = productRepository.findById(id)
-                .orElseThrow(() -> {
-                    log.error("Product with id {} not found", id);
-                    return new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
-                });
-
-        product.setName(updatedProduct.getName());
-        product.setPrice(updatedProduct.getPrice());
-        product.setCategory(updatedProduct.getCategory());
-
-        return productRepository.save(product);
+        Optional<Product> productOptional = productRepository.findById(id);
+        if (productOptional.isPresent()) {
+            Product product = productOptional.get();
+            product.setName(updatedProduct.getName());
+            product.setPrice(updatedProduct.getPrice());
+            product.setCategory(updatedProduct.getCategory());
+            Product savedProduct = productRepository.save(product);
+            return ResponseEntity.ok(savedProduct);
+        } else {
+            log.error("Product with id {} not found", id);
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found");
+        }
     }
 
     @DeleteMapping("/{id}")
-    public void  delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         log.info("Deleting product by id: {}", id);
-        Product product = productRepository.findById(id).orElse(null);
-        if (product != null) {
-            productRepository.delete(product);
+        Optional<Product> productOptional = productRepository.findById(id);
+        if (productOptional.isPresent()) {
+            productRepository.delete(productOptional.get());
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
         }
     }
 }
