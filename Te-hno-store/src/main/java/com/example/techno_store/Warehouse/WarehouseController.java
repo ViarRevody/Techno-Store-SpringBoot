@@ -1,4 +1,4 @@
-package com.example.Te.hno_store.Warehouse;
+package com.example.techno_store.Warehouse;
 
 import java.util.List;
 
@@ -43,7 +43,7 @@ public class WarehouseController {
         warehouseService.removeById(id);
         return ResponseEntity.noContent().build();
     }
-
+    
     @PutMapping("/{productId}/decrease")
     public ResponseEntity<Void> decreaseQuantity(@PathVariable Long productId, @RequestParam int amount) {
         log.info("Decreasing quantity of product: {}", productId);

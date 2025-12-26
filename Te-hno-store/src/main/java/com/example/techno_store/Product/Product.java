@@ -1,4 +1,4 @@
-package com.example.Te.hno_store.Product;
+package com.example.techno_store.Product;
 
 import jakarta.persistence.*;
 import lombok.Getter;

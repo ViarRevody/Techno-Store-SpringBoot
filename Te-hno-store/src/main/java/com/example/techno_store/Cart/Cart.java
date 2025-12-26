@@ -1,4 +1,4 @@
-package com.example.Te.hno_store.Cart;
+package com.example.techno_store.Cart;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

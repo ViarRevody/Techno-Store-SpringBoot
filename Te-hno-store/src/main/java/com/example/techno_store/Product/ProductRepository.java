@@ -1,4 +1,4 @@
-package com.example.Te.hno_store.Product;
+package com.example.techno_store.Product;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

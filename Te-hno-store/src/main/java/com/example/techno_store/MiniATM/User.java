@@ -1,4 +1,4 @@
-package com.example.Te.hno_store.MiniATM;
+package com.example.techno_store.MiniATM;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -10,8 +10,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "user_account")
-public class User_Account {
+@Table(name = "user_")
+public class User {
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
