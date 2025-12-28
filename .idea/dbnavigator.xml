@@ -41,11 +41,13 @@
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.cart" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.phone" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.Product_type" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.bank" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.laptop" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.warehouse" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.cart_item" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.technology" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.product" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="fc3df3dd-396d-432c-be0a-1ac7445e52a8" dataset="public.user_" active-filter-id="EMPTY_FILTER" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />

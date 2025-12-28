@@ -1,5 +1,6 @@
 package com.example.techno_store.MiniATM;
 
+import com.example.techno_store.Cart.Cart;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,5 +29,9 @@ public class User {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private User_Account account;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private Cart cart;
+
 
 }

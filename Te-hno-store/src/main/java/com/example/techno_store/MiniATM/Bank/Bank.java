@@ -1,4 +1,4 @@
-package com.example.techno_store.MiniATM;
+package com.example.techno_store.MiniATM.Bank;
 
 import jakarta.persistence.*;
 import java.math.BigDecimal;

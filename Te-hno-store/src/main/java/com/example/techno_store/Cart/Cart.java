@@ -1,5 +1,6 @@
 package com.example.techno_store.Cart;
 
+import com.example.techno_store.MiniATM.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -19,4 +20,8 @@ public class Cart {
 
     @OneToMany(mappedBy = "cart", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartItem> items = new ArrayList<>();
+
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }

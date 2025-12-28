@@ -1,4 +1,4 @@
-package com.example.techno_store.MiniATM;
+package com.example.techno_store.MiniATM.Bank;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
