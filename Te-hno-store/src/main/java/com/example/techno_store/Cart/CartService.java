@@ -75,4 +75,20 @@ public class CartService {
                     return new ResponseStatusException(HttpStatus.NOT_FOUND, "Cart not found");
                 });
     }
+
+    public CartItem getCartItem(Long cartId, Long itemId) {
+        log.info("Getting cart item by ID: {}", itemId);
+        Cart cart = cartRepository.findById(cartId)
+                .orElseThrow(() -> {
+                    log.error("Cart with ID {} not found when getting item", cartId);
+                    return new ResponseStatusException(HttpStatus.NOT_FOUND, "Cart not found");
+                });
+        return cart.getItems().stream()
+                .filter(item -> item.getId().equals(itemId))
+                .findFirst()
+                .orElseThrow(() -> {
+                    log.error("Cart item with ID {} not found in cart {}", itemId, cartId);
+                    return new ResponseStatusException(HttpStatus.NOT_FOUND, "Cart item not found");
+                });
+    }
 }

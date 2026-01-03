@@ -1,5 +1,6 @@
 package com.example.techno_store.Cart;
 
+import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.log4j.Log4j2;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,11 +25,18 @@ public class CartController {
 
     @GetMapping("/{id}")
         public ResponseEntity<Cart> getCart(@PathVariable Long id){
-            log.info("GET cart request for cart ID: {}", id);
+        log.info("GET cart request for cart ID: {}", id);
         Cart cart = cartService.getCart(id);
         return ResponseEntity.ok(cart);
         }
-        @PostMapping
+
+    @GetMapping("/{cartId}/items/{itemId}")
+    public ResponseEntity<CartItem> getCartItem(@PathVariable Long cartId, @PathVariable Long itemId){
+        log.info("GET cart item request for cart ID: {}, item ID: {}", cartId, itemId);
+        CartItem cartItem= cartService.getCartItem(cartId,itemId);
+        return ResponseEntity.ok(cartItem);
+    }
+    @PostMapping
         public ResponseEntity<Cart> createCart(){
             log.info("New cart created with createCart");
             Cart cart = cartService.createCart();
