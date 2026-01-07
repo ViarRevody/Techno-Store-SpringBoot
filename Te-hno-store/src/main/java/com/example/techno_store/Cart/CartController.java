@@ -36,6 +36,7 @@ public class CartController {
         CartItem cartItem= cartService.getCartItem(cartId,itemId);
         return ResponseEntity.ok(cartItem);
     }
+
     @PostMapping
         public ResponseEntity<Cart> createCart(){
             log.info("New cart created with createCart");
